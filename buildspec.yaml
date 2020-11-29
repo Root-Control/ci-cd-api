@@ -17,7 +17,7 @@ phases:
     commands:
       - echo installing nest/cli...
       - npm i -g rimraf
-      # - npm i -g @nestjs/cli
+      - npm i -g @nestjs/cli
   build:
     commands:
       # - echo testing...

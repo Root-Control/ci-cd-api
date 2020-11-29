@@ -22,7 +22,7 @@ phases:
       - echo testing...
       - echo building...
       - npm run build
-  pot_build:
+  post_build:
     commands:
       - echo Removing node_modules
       - rimraf node_modules

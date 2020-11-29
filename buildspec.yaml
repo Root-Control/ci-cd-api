@@ -16,6 +16,7 @@ phases:
   pre_build:
     commands:
       - echo installing nest/cli...
+      - npm i -g rimraf
       # - npm i -g @nestjs/cli
   build:
     commands:

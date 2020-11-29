@@ -25,7 +25,7 @@ phases:
   post_build:
     commands:
       - echo Removing node_modules
-      - rimraf node_modules
+      - rimraf ./node_modules
 artifacts:
   files:
     - "**/*"

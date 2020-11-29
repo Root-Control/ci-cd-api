@@ -25,9 +25,10 @@ phases:
   post_build:
     commands:
       - echo Removing node_modules
-      - rimraf ./node_modules
 artifacts:
   files:
     - "**/*"
   discard-paths: no
+  excluded_paths: 
+    - ./node_modules
   base-directory: ./

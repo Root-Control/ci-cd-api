@@ -22,8 +22,12 @@ phases:
       - echo testing...
       - echo building...
       - npm run build
+  pot_build:
+    commands:
+      - echo Removing node_modules
+      - rimraf node_modules
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist
+  base-directory: ./

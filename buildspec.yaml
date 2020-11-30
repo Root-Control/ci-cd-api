@@ -16,6 +16,7 @@ phases:
   pre_build:
     commands:
       - echo installing dependencies...
+      - npm install @nestjs/cli -g
       - yarn
   build:
     commands:
@@ -29,7 +30,4 @@ phases:
 artifacts:
   files:
     - "**/*"
-  discard-paths: no
-  excluded_paths: 
-    - node_modules
   base-directory: ./

@@ -1,11 +1,16 @@
 import { Controller, Get, Sse, MessageEvent, Req, Res,  } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import { AppService } from './app.service';
-import { Observable, interval } from 'rxjs';
+import { Observable, interval, Subject } from 'rxjs';
 import { map  } from 'rxjs/operators';
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  private variableUpdatedSource = new Subject<any>();
+  variableUpdated$ = this.variableUpdatedSource.asObservable();
+
+  constructor(private readonly appService: AppService) {
+    
+  }
 
   @Get()
   getHello(): string {
@@ -21,12 +26,13 @@ export class AppController {
 
   @Sse('sse2')
   @OnEvent('api.called')
-  sse2(): MessageEvent {
-    return { data: { hello: 'world' } }
+  sse2(): Observable<MessageEvent> {
+    return this.variableUpdated$;
   }
 
   @Get('call')
   call() {
+    this.variableUpdatedSource.next({ data: new Date() });
     return 'Api called';
   }
 }

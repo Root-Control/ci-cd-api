@@ -1,4 +1,5 @@
-import { Controller, Get, Sse, MessageEvent, Req, Res, OnEvent } from '@nestjs/common';
+import { Controller, Get, Sse, MessageEvent, Req, Res,  } from '@nestjs/common';
+import { OnEvent } from '@nestjs/event-emitter';
 import { AppService } from './app.service';
 import { Observable, interval } from 'rxjs';
 import { map  } from 'rxjs/operators';
